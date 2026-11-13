@@ -1,0 +1,32 @@
+{
+  "title": "Colibri Atlas Evidence Replay: local source-linked research workflow",
+  "upload_type": "software",
+  "version": "0.1.0a1",
+  "publication_date": "2026-11-13",
+  "license": "Apache-2.0",
+  "creators": [
+    {
+      "name": "Tan, Sin Hon Albert",
+      "orcid": "0009-0001-8996-7933"
+    }
+  ],
+  "description": "An optional source-linked research integration for Colibri, developed upstream by Vincenzo Fornaro and contributors. The archive preserves original authorship and licence notices. Added Evidence Replay captures candidate claims through the existing chat API, validates exact quotations, rechecks saved work with Atlas Reweave and exports RegNav Source Watch context links. Prototype validation: 48 tests passed without skips; 12 synthetic demonstration assertions passed. Gateway tests use a scripted engine double, not model weights. No claim of semantic correctness, real-model quality, scientific novelty or upstream endorsement.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Albertito-AI/colibri-atlas",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/JustVugg/colibri",
+      "relation": "isDerivedFrom",
+      "scheme": "url"
+    }
+  ],
+  "keywords": [
+    "research software",
+    "evidence replay",
+    "local inference",
+    "reproducibility"
+  ]
+}
