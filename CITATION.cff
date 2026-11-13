@@ -7,6 +7,7 @@ authors:
     given-names: Sin Hon Albert
     orcid: "https://orcid.org/0009-0001-8996-7933"
 version: 0.1.0a1
+doi: 10.5281/zenodo.24206408
 date-released: 2026-11-13
 license: Apache-2.0
 repository-code: "https://github.com/Albertito-AI/colibri-atlas"
