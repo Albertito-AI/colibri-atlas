@@ -8,6 +8,8 @@ A concrete use case: capture candidate claims from a local model, inspect exact 
 
 The integration passed 48 tests without skips, including the actual Colibri HTTP gateway with a scripted engine double. The synthetic demonstration verifies 12 assertions. Real-model extraction quality and inference performance have not been measured. Exact quotations do not establish semantic support, source authenticity or legal correctness. This is an application integration, with no claim of scientific novelty or upstream endorsement.
 
+Archived prototype: [Zenodo DOI 10.5281/zenodo.24206408](https://doi.org/10.5281/zenodo.24206408) · [Release 0.1.0a1](https://github.com/Albertito-AI/colibri-atlas/releases/tag/v0.1.0a1) · [Project and demonstration](https://www.alberttansinhon.com/colibri-atlas/). Cite this record for the Evidence Replay integration and cite upstream Colibri separately when using its inference engine.
+
 ## Original Colibri project
 
 <p align="center">
