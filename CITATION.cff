@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "Cite this record for the Evidence Replay integration. Cite upstream Colibri separately when using its inference engine."
+type: software
+title: "Colibri Atlas Evidence Replay: local source-linked research workflow"
+authors:
+  - family-names: Tan
+    given-names: Sin Hon Albert
+    orcid: "https://orcid.org/0009-0001-8996-7933"
+version: 0.1.0a1
+date-released: 2026-11-13
+license: Apache-2.0
+repository-code: "https://github.com/Albertito-AI/colibri-atlas"
+abstract: "An optional Colibri example that captures source-linked candidate claims, checks literal quotations, rechecks saved work with Atlas Reweave, and exports RegNav Source Watch context links. The release is a tested prototype using synthetic fixtures and a scripted gateway engine; real-model performance and semantic correctness have not been established. Original Colibri authorship and licence notices are preserved."

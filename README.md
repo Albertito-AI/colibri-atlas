@@ -1,3 +1,15 @@
+# Colibri Atlas: Evidence Replay
+
+**Public prototype 0.1.0a1.** This fork adds an optional, source-linked research workflow to [Colibri](https://github.com/JustVugg/colibri), the Apache-2.0 inference engine developed upstream. Original code, authorship, notices and documentation are retained below. Model weights have their own licences and are not included.
+
+[Start the Evidence Replay example](examples/atlas_evidence/README.md) · [Validation and limits](examples/atlas_evidence/VALIDATION.md)
+
+A concrete use case: capture candidate claims from a local model, inspect exact quoted source spans, then recheck the saved work after a source or acceptance rule changes. Atlas Reweave blocks reports whose evidence fails; RegNav Source Watch identifies affected claims. An escaped offline review page keeps human review explicit.
+
+The integration passed 48 tests without skips, including the actual Colibri HTTP gateway with a scripted engine double. The synthetic demonstration verifies 12 assertions. Real-model extraction quality and inference performance have not been measured. Exact quotations do not establish semantic support, source authenticity or legal correctness. This is an application integration, with no claim of scientific novelty or upstream endorsement.
+
+## Original Colibri project
+
 <p align="center">
   <img src="assets/colibri-logo.svg" width="560" alt="colibrì: tiny engine, immense model">
 </p>
