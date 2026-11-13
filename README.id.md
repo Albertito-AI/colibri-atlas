@@ -39,12 +39,6 @@ $ ./coli chat
   ◆ Ciao! Come posso aiutarti oggi?
 ```
 
-<p align="center">
-  <a href="https://www.buymeacoffee.com/justvugg"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=justvugg&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" alt="Buy me a coffee" height="40"></a>
-  <br>
-  <sub>colibri gratis dan open source. Jika colibri sudah mendapat tempat di mesin Anda, secangkir kopi membantu membiayai engine berikutnya dan peningkatan kecepatan berikutnya.</sub>
-</p>
-
 <a id="get-started"></a>
 <a id="the-one-step-way"></a>
 
@@ -898,8 +892,6 @@ ini berguna bagi Anda:
   mendorong proyek ini daripada hal lainnya;
 - bergabunglah dengan [komunitas Discord](https://discord.gg/RXV83nSZdk) untuk
   membahas eksperimen, hasil hardware, dan arah riset;
-- hubungi melalui GitHub issues untuk mensponsori pengembangan atau
-  menyumbangkan hardware.
 
 ## Mengapa "colibrì"
 

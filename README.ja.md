@@ -25,12 +25,6 @@ $ ./coli chat
   ◆ Ciao! Come posso aiutarti oggi?
 ```
 
-<p align="center">
-  <a href="https://www.buymeacoffee.com/justvugg"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=justvugg&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" alt="Buy me a coffee" height="40"></a>
-  <br>
-  <sub>colibri は無料のオープンソースです。あなたのマシンで役立っているなら、コーヒー 1 杯が次のエンジンと次の高速化を支えます。</sub>
-</p>
-
 <a id="get-started"></a>
 <a id="the-one-step-way"></a>
 
@@ -547,7 +541,6 @@ colibri は、RAM 25 GB の 12 コアのラップトップ上で、1 人のプ�
 - リポジトリにスターを付けて、共有してください。
 - あなたのハードウェアでのベンチマーク数値を添えて issue を作成してください：データポイントは何よりもこのプロジェクトを前進させます。
 - [Discord コミュニティ](https://discord.gg/RXV83nSZdk)に参加して、実験、ハードウェアでの結果、研究の方向性について議論してください。
-- 開発のスポンサーやハードウェアの寄贈については、GitHub の issue からご連絡ください。
 
 ## なぜ「colibrì」なのか
 

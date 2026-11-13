@@ -39,12 +39,6 @@ $ ./coli chat
   ◆ Ciao! Come posso aiutarti oggi?
 ```
 
-<p align="center">
-  <a href="https://www.buymeacoffee.com/justvugg"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=justvugg&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" alt="Buy me a coffee" height="40"></a>
-  <br>
-  <sub>O colibri é gratuito e de código aberto. Se ele conquistou um lugar na sua máquina, um café ajuda a pagar o próximo motor e o próximo ganho de velocidade.</sub>
-</p>
-
 <a id="get-started"></a>
 <a id="the-one-step-way"></a>
 
@@ -871,8 +865,6 @@ lhe for útil:
   mais do que qualquer outra coisa;
 - junte-se à [comunidade no Discord](https://discord.gg/RXV83nSZdk) para discutir
   experimentos, resultados de hardware e direções de pesquisa;
-- fale com a gente pelas issues do GitHub para patrocinar o desenvolvimento ou
-  doar hardware.
 
 ## Por que "colibrì"
 
