@@ -11,4 +11,3 @@ date-released: 2026-11-13
 license: Apache-2.0
 repository-code: "https://github.com/Albertito-AI/colibri-atlas"
 abstract: "An optional Colibri example that captures source-linked candidate claims, checks literal quotations, rechecks saved work with Atlas Reweave, and exports RegNav Source Watch context links. The release is a tested prototype using synthetic fixtures and a scripted gateway engine; real-model performance and semantic correctness have not been established. Original Colibri authorship and licence notices are preserved."
-doi: 10.5281/zenodo.24200550
