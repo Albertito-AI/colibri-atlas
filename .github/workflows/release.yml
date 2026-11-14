@@ -3,13 +3,14 @@ name: Release
 on:
   push:
     tags: ['v*']
-  # A change to this file builds and verifies every archive before a tag depends on
-  # it, and publishes nothing (the release job runs on tags only).
+  # Upstream validates archives on workflow PRs and publishes on version tags.
+  # The Atlas fork keeps ordinary check.yml/ci.yml coverage; its release plan is
+  # separate. Job guards below prevent inherited release builds and publication.
   pull_request:
     paths: ['.github/workflows/release.yml']
 
 permissions:
-  contents: write
+  contents: read
 
 env:
   # The version in the archives' names: the tag, or a stand-in on a pull request.
@@ -17,6 +18,7 @@ env:
 
 jobs:
   build:
+    if: github.repository == 'JustVugg/colibri'
     strategy:
       matrix:
         include:
@@ -499,6 +501,7 @@ jobs:
   # windows-2022 and CUDA 12.8.1: the pins of ci.yml's windows-cuda-build, which builds
   # the same files on every commit (the toolkit refuses windows-latest's MSVC).
   cuda-windows:
+    if: github.repository == 'JustVugg/colibri'
     runs-on: windows-2022
     steps:
       - uses: actions/checkout@v4
@@ -596,7 +599,9 @@ jobs:
 
   release:
     needs: [build, cuda-windows]
-    if: startsWith(github.ref, 'refs/tags/')
+    if: github.repository == 'JustVugg/colibri' && github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -621,25 +626,11 @@ jobs:
           if [ -z "$NOTES" ]; then
             NOTES="Release ${TAG}"
           fi
-          # Attach to an existing release rather than failing on it.
-          #
-          # `gh release create` errors with "a release with the same tag name
-          # already exists" whenever the release was published by hand before
-          # the tag build finished -- which is how any release with hand-written
-          # notes happens. v1.5.0 hit exactly that: all three platforms built,
-          # the checksums printed, and then the job went red having attached
-          # nothing, so the release had notes and no downloads until the
-          # artifacts were recovered from that run by hand.
-          #
-          # Uploading is the operation that matters and --clobber makes it
-          # idempotent, so upload when the release exists and write notes only
-          # when creating one. Notes a human already published are never
-          # overwritten by the CHANGELOG fallback.
-          if gh release view "$TAG" >/dev/null 2>&1; then
-            echo "release $TAG already exists — uploading artifacts to it"
-            gh release upload "$TAG" artifacts/* --clobber
-          else
-            gh release create "$TAG" artifacts/* \
-              --title "colibri ${TAG}" \
-              --notes "$NOTES"
-          fi
+          # Create only: existing releases, partial drafts and failed uploads need
+          # explicit reconciliation. Never replace published assets or checksums.
+          # A concurrent create or uncertain response is a failure, not permission
+          # to fall back to upload, delete or retry. Require the remote tag to exist.
+          gh release create "$TAG" artifacts/* \
+            --verify-tag \
+            --title "colibri ${TAG}" \
+            --notes "$NOTES"
