@@ -1,0 +1,45 @@
+name: Desktop checks
+
+# Compile the Rust desktop shell when its own inputs change. The C/Python
+# workflows continue to cover native and mixed changes independently.
+on:
+  pull_request:
+    branches: [dev, main]
+    paths:
+      - 'desktop/**'
+      - '.github/workflows/desktop.yml'
+      - '.github/scripts/apt-install.sh'
+  push:
+    branches: [dev, main]
+    paths:
+      - 'desktop/**'
+      - '.github/workflows/desktop.yml'
+      - '.github/scripts/apt-install.sh'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  desktop:
+    name: Desktop Rust 1.85 (Linux)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      CARGO_BUILD_JOBS: '2'
+      CARGO_TERM_COLOR: always
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install WebKitGTK development libraries
+        run: bash .github/scripts/apt-install.sh libwebkit2gtk-4.1-dev
+      - name: Install the declared minimum Rust toolchain
+        run: rustup toolchain install 1.85.0 --profile minimal --no-self-update
+      - name: Check the locked desktop targets
+        working-directory: desktop/src-tauri
+        run: cargo +1.85.0 check --locked --all-targets
