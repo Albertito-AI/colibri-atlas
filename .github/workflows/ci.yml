@@ -5,17 +5,21 @@ on:
     branches: [dev, main]
     paths-ignore:
       - 'web/**'
+      - 'desktop/**'
       - '.github/workflows/ci.yml'
       - '.github/workflows/check.yml'
       - '.github/workflows/web-ui.yml'
+      - '.github/workflows/desktop.yml'
   push:
     branches: [dev, main]
     paths-ignore:
       - 'web/**'
+      - 'desktop/**'
       - '.github/workflows/ci.yml'
       - '.github/workflows/check.yml'
       - '.github/workflows/web-ui.yml'
-  # Web and CI routing changes use the bounded web-ui.yml gates. Dispatch
+      - '.github/workflows/desktop.yml'
+  # Web, desktop, and CI routing changes use their bounded validation gates. Dispatch
   # explicitly when a native workflow edit needs runtime validation.
   workflow_dispatch:
 
