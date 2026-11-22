@@ -3,13 +3,30 @@ name: CI
 on:
   pull_request:
     branches: [dev, main]
+    paths-ignore:
+      - 'web/**'
+      - '.github/workflows/ci.yml'
+      - '.github/workflows/check.yml'
+      - '.github/workflows/web-ui.yml'
   push:
     branches: [dev, main]
+    paths-ignore:
+      - 'web/**'
+      - '.github/workflows/ci.yml'
+      - '.github/workflows/check.yml'
+      - '.github/workflows/web-ui.yml'
+  # Web and CI routing changes use the bounded web-ui.yml gates. Dispatch
+  # explicitly when a native workflow edit needs runtime validation.
+  workflow_dispatch:
 
 # CI only reads the tree; no job here writes to the repo. Pin the token to
 # read-only so a compromised step (or action) cannot push, tag or release.
 permissions:
   contents: read
+
+concurrency:
+  group: native-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   # The environment-variable registry (c/coli_env.h) against the sources. No
@@ -2171,25 +2188,6 @@ jobs:
             c/qwen36.exe
             c/kimi_k3.exe
             c/glm53.exe
-
-  web:
-    name: Web UI
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: web
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-          cache-dependency-path: web/package-lock.json
-      - run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Test
-        run: npx vitest run
 
   python:
     name: Python tests

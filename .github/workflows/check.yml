@@ -6,8 +6,21 @@ name: check
 on:
   push:
     branches: [main, dev]
+    paths-ignore:
+      - 'web/**'
+      - '.github/workflows/ci.yml'
+      - '.github/workflows/check.yml'
+      - '.github/workflows/web-ui.yml'
   pull_request:
     branches: [main, dev]
+    paths-ignore:
+      - 'web/**'
+      - '.github/workflows/ci.yml'
+      - '.github/workflows/check.yml'
+      - '.github/workflows/web-ui.yml'
+  # Web and CI routing changes use the bounded web-ui.yml gates. Dispatch
+  # explicitly when a native workflow edit needs runtime validation.
+  workflow_dispatch:
 
 permissions:
   contents: read
